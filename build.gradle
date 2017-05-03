@@ -17,3 +17,13 @@ allprojects {
         jcenter()
     }
 }
+
+task startTestsWithBackend {
+    dependsOn ':backend:appengineRun'
+    finalizedBy 'runTests'
+}
+
+task runTests {
+    dependsOn ':app:connectedAndroidTest'
+    finalizedBy ':backend:appengineStop'
+}

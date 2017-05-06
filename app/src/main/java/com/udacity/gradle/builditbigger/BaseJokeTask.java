@@ -8,7 +8,6 @@ import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.udacity.gradle.backend.myApi.MyApi;
-import com.udacity.gradle.jokeslib.Jokes;
 
 import java.io.IOException;
 
@@ -54,7 +53,7 @@ public class BaseJokeTask extends AsyncTask<Context, Void, String> {
         }
         mContext = params[0];
         try {
-            return sApi.getJoke(Jokes.provideJoke()).execute().getData();
+            return sApi.getJoke().execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }

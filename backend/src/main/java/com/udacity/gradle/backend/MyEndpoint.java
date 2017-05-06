@@ -9,6 +9,7 @@ package com.udacity.gradle.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.udacity.gradle.jokeslib.Jokes;
 
 import javax.inject.Named;
 
@@ -34,9 +35,9 @@ public class MyEndpoint {
     }
 
     @ApiMethod(name = "getJoke")
-    public MyBean getJoke(@Named("joke") String joke){
+    public MyBean getJoke(){
         MyBean response = new MyBean();
-        response.setData(joke);
+        response.setData(Jokes.provideJoke());
         return response;
     }
 
